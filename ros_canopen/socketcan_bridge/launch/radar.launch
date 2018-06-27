@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+
+   <arg name="model" default="$(find urdf_radar)/urdf/conti_radar.urdf"/>
+   <arg name="gui" default="true" />
+   <arg name="rvizconfig" default="$(find radar_rviz)/rviz/urdf.rviz" />
+
+<!-- Radar communication nodes -->
+    <node name="decode_node" pkg="socketcan_bridge" type="decode_node"/>
+
+    <node name="socketcan_bridge_node" pkg="socketcan_bridge" type="socketcan_bridge_node" />
+
+    <node name="speedinfo_node" pkg="socketcan_bridge" type="speedinfo_node" />
+
+<!-- Radar markers visualization -->
+
+    <node name="visualization_marker_node" pkg="radar_rviz" type="visualization_marker_node" />
+
+<!-- Radar model -->
+
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+    <param name="use_gui" value="$(arg gui)"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+<!-- Radar rviz -->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+<!-- Kalman filter -->
+
+    <node name="ExtendedKF" pkg="kalman_filter" type="ExtendedKF" />
+
+</launch>
