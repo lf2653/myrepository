@@ -69,31 +69,36 @@ namespace markers
      		// Create the vertices for the points and lines
      		for (uint32_t i = 0; i < 5; i++)
 			{
+                float x;
          		float y;
          		float z;
          		if (i==0 || i==4)
      			{
+                    x = input.longitude_dist + (input.width/2)*tan((input.orientation_angle*M_PI)/180);
             		y = input.lateral_dist + input.width / 2;
             		z = input.length / 2;
          		}
          		else if (i==1)
          		{
+                    x = input.longitude_dist - (input.width/2)*tan((input.orientation_angle*M_PI)/180);
             		y = input.lateral_dist - input.width / 2;
             		z = input.length / 2;
          		}
          		else if (i==2)
          		{
+                    x = input.longitude_dist - (input.width/2)*tan((input.orientation_angle*M_PI)/180);
             		y = input.lateral_dist - input.width / 2;
             		z = - input.length / 2;
          		}
          		else if (i==3)
          		{
+                    x = input.longitude_dist + (input.width/2)*tan((input.orientation_angle*M_PI)/180);
             		y = input.lateral_dist + input.width / 2;
             		z = - input.length / 2;
          		}
    
          		geometry_msgs::Point p;
-         		p.x = input.longitude_dist;
+         		p.x = x;
          		p.y = y;
          		p.z = z;
   
@@ -164,31 +169,36 @@ namespace markers
             // Create the vertices for the points and lines
             for (uint32_t i = 0; i < 5; i++)
             {
+                float x;
                 float y;
                 float z;
                 if (i==0 || i==4)
                 {
+                    x = input.longitude_dist + (input.width/2)*tan((input.orientation_angle*M_PI)/180);
                     y = input.lateral_dist + input.width / 2;
                     z = input.length / 2;
                 }
                 else if (i==1)
                 {
+                    x = input.longitude_dist - (input.width/2)*tan((input.orientation_angle*M_PI)/180);
                     y = input.lateral_dist - input.width / 2;
                     z = input.length / 2;
                 }
                 else if (i==2)
                 {
+                    x = input.longitude_dist - (input.width/2)*tan((input.orientation_angle*M_PI)/180);
                     y = input.lateral_dist - input.width / 2;
                     z = - input.length / 2;
                 }
                 else if (i==3)
                 {
+                    x = input.longitude_dist + (input.width/2)*tan((input.orientation_angle*M_PI)/180);
                     y = input.lateral_dist + input.width / 2;
                     z = - input.length / 2;
                 }
    
                 geometry_msgs::Point p;
-                p.x = input.longitude_dist;
+                p.x = x;
                 p.y = y;
                 p.z = z;
   

@@ -22,7 +22,7 @@
     <param name="use_gui" value="$(arg gui)"/>
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_radar" args="3 0 0.38 0 0 0 /base_link /radar 10" />
 
 <!-- Radar rviz -->
 

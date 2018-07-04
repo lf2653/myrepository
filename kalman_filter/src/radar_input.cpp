@@ -55,6 +55,7 @@ void radar_input::callback(const pb_msgs::ContiRadar & input)
         output.header = input.header;
         output.obstacle_id = input.obstacle_id;
         output.rcs = input.rcs;
+        output.orientation_angle = input.orientation_angle;
         output.length = input.length;
         output.width = input.width;
         output.obstacle_class = input.obstacle_class;

@@ -61,7 +61,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
   if (kalman_vector.size() == 0)
   {
-    for (int n = 0; n<10; n++)
+    for (int n = 0; n<100; n++)
     {
       kalman_vector.push_back(kalman_data());
     }
@@ -109,8 +109,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   	ekf_.P_ = MatrixXd(4, 4);
   	ekf_.P_ << 1, 0, 0, 0,
        	  	   0, 1, 0, 0,
-          	   0, 0, 1000, 0,
-          	   0, 0, 0, 1000;
+          	   0, 0, 1, 0,
+          	   0, 0, 0, 1;
     //return;
   }
 

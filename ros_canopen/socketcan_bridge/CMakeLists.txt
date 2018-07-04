@@ -19,6 +19,7 @@ catkin_package(
     socketcan_to_topic
     topic_to_socketcan
     decode
+    warning
     speedinfo
   CATKIN_DEPENDS
     can_msgs
@@ -67,6 +68,17 @@ add_dependencies(decode
   ${catkin_EXPORTED_TARGETS}
 )
 
+# warning
+add_library(warning
+  src/warning.cpp
+)
+target_link_libraries(warning
+  ${catkin_LIBRARIES}
+)
+add_dependencies(warning
+  ${catkin_EXPORTED_TARGETS}
+)
+
 # speedinfo
 add_library(speedinfo
   src/speedinfo.cpp
@@ -100,10 +112,18 @@ target_link_libraries(topic_to_socketcan_node
 # decode_node
 add_executable(decode_node
   src/decode_node.cpp
-
 )
 target_link_libraries(decode_node
   decode
+  ${catkin_LIBRARIES}
+)
+
+# warning_node
+add_executable(warning_node
+  src/warning_node.cpp
+)
+target_link_libraries(warning_node
+  warning
   ${catkin_LIBRARIES}
 )
 

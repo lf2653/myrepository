@@ -155,8 +155,12 @@ namespace socketcan_bridge
          output2.header.frame_id="radar";
          output2.obstacle_id=input.data[0];
          Byte b3;
+         Byte b4;
+         Byte b5;
 
          b3.byte=input.data[3];
+         b4.byte=input.data[4];
+         b5.byte=input.data[5];
 
          if (b3.bit3==0) 
          {
@@ -208,6 +212,8 @@ namespace socketcan_bridge
                }
             }    
          } 
+
+         output2.orientation_angle = OBJECT_ORIENTATION_ANGEL_MIN+OBJECT_ORIENTATION_ANGEL_RES*(pow(2,0)*b5.bit7+pow(2,1)*b5.bit8+pow(2,2)*b4.bit1+pow(2,3)*b4.bit2+pow(2,4)*b4.bit3+pow(2,5)*b4.bit4+pow(2,6)*b4.bit5+pow(2,7)*b4.bit6+pow(2,8)*b4.bit7+pow(2,9)*b4.bit8);
 
          output2.length=OBJECT_LENGTH_RES*input.data[6];
 
