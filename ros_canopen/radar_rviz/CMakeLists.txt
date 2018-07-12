@@ -17,6 +17,7 @@ catkin_package(
     include
   LIBRARIES
     visualization_marker
+    visualization_marker_cluster
   CATKIN_DEPENDS
     roscpp
     std_msgs
@@ -29,6 +30,8 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+# Objects visualization 
 
 add_library(visualization_marker
   src/visualization_marker.cpp
@@ -49,3 +52,23 @@ target_link_libraries(visualization_marker_node
   ${catkin_LIBRARIES}
 )
 
+# Clusters visualization
+
+add_library(visualization_marker_cluster
+  src/visualization_marker_cluster.cpp
+)
+target_link_libraries(visualization_marker_cluster
+  ${catkin_LIBRARIES}
+)
+add_dependencies(visualization_marker_cluster
+  ${catkin_EXPORTED_TARGETS}
+)
+
+add_executable(visualization_marker_node_cluster
+  src/visualization_marker_node_cluster.cpp
+
+)
+target_link_libraries(visualization_marker_node_cluster
+  visualization_marker_cluster
+  ${catkin_LIBRARIES}
+)

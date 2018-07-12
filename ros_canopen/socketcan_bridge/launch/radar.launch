@@ -6,6 +6,8 @@
    <arg name="rvizconfig" default="$(find radar_rviz)/rviz/urdf.rviz" />
 
 <!-- Radar communication nodes -->
+    <node name="decode_node_cluster" pkg="socketcan_bridge" type="decode_node_cluster"/>
+
     <node name="decode_node" pkg="socketcan_bridge" type="decode_node"/>
 
     <node name="socketcan_bridge_node" pkg="socketcan_bridge" type="socketcan_bridge_node" />
@@ -15,6 +17,8 @@
 <!-- Radar markers visualization -->
 
     <node name="visualization_marker_node" pkg="radar_rviz" type="visualization_marker_node" />
+
+    <node name="visualization_marker_node_cluster" pkg="radar_rviz" type="visualization_marker_node_cluster" />
 
 <!-- Radar model -->
 
@@ -30,6 +34,6 @@
 
 <!-- Kalman filter -->
 
-    <node name="ExtendedKF" pkg="kalman_filter" type="ExtendedKF" />
+    <node name="extendedkf" pkg="kalman_filter" type="extendedkf" />
 
 </launch>

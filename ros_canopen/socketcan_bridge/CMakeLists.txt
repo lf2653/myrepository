@@ -19,6 +19,7 @@ catkin_package(
     socketcan_to_topic
     topic_to_socketcan
     decode
+    decode_cluster
     warning
     speedinfo
   CATKIN_DEPENDS
@@ -65,6 +66,17 @@ target_link_libraries(decode
   ${catkin_LIBRARIES}
 )
 add_dependencies(decode
+  ${catkin_EXPORTED_TARGETS}
+)
+
+# decode_cluster
+add_library(decode_cluster
+  src/decode_cluster.cpp
+)
+target_link_libraries(decode_cluster
+  ${catkin_LIBRARIES}
+)
+add_dependencies(decode_cluster
   ${catkin_EXPORTED_TARGETS}
 )
 
@@ -115,6 +127,15 @@ add_executable(decode_node
 )
 target_link_libraries(decode_node
   decode
+  ${catkin_LIBRARIES}
+)
+
+# decode_node_cluster
+add_executable(decode_node_cluster
+  src/decode_node_cluster.cpp
+)
+target_link_libraries(decode_node_cluster
+  decode_cluster
   ${catkin_LIBRARIES}
 )
 

@@ -37,7 +37,7 @@ namespace socketcan_bridge
          b1.byte=input.data[1];
          b2.byte=input.data[2];
 
-         output1.meas_counter = pow(2,0)*b2.bit1+pow(2,1)*b2.bit2+pow(2,2)*b2.bit3+pow(2,3)*b2.bit4+pow(2,4)*b2.bit5+pow(2,5)*b2.bit6+pow     (2,6)*b2.bit7+pow(2,7)*b2.bit8+pow(2,8)*b1.bit1+pow(2,9)*b1.bit2+pow(2,10)*b1.bit3+pow(2,11)*b1.bit4+pow(2,12)*b1.bit5+pow(2,13)*b1.bit6+pow(2,14)*b1.bit7+pow(2,15)*b1.bit8;
+         output1.meas_counter = pow(2,0)*b2.bit1+pow(2,1)*b2.bit2+pow(2,2)*b2.bit3+pow(2,3)*b2.bit4+pow(2,4)*b2.bit5+pow(2,5)*b2.bit6+pow(2,6)*b2.bit7+pow(2,7)*b2.bit8+pow(2,8)*b1.bit1+pow(2,9)*b1.bit2+pow(2,10)*b1.bit3+pow(2,11)*b1.bit4+pow(2,12)*b1.bit5+pow(2,13)*b1.bit6+pow(2,14)*b1.bit7+pow(2,15)*b1.bit8;
 
          output1.interface_version=input.data[3];
 

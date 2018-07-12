@@ -11,6 +11,8 @@ add_message_files(DIRECTORY msg
   FILES
     ContiRadar.msg
     ContiList.msg
+    ClusterRadar.msg
+    ClusterList.msg
 )
 
 generate_messages(

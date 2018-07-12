@@ -53,6 +53,16 @@ const double OBJECT_VREL_LAT_MIN = -64.0;
 const double OBJECT_RCS_RES = 0.5;
 const double OBJECT_RCS_MIN = -64.0;
 
+// Cluster genearal information
+const double TARGET_DIST_RES = 0.2;
+const double TARGET_DIST_LONG_MIN = -500;
+const double TARGET_DIST_LAT_MIN = -102.3;
+const double TARGET_VREL_RES = 0.25;
+const double TARGET_VREL_LONG_MIN = -128.0;
+const double TARGET_VREL_LAT_MIN = -64.0;
+const double TARGET_RCS_RES = 0.5;
+const double TARGET_RCS_MIN = -64.0;
+
 // Object extended information
 const double OBJECT_AREL_RES = 0.01;
 const double OBJECT_AREL_LONG_MIN = -10.0;

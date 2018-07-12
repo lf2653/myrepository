@@ -1,5 +1,5 @@
-#ifndef MARKERS_VISUALIZATION_MARKER_H
-#define MARKERS_VISUALIZATION_MARKER_H
+#ifndef MARKERS_VISUALIZATION_MARKER_CLUSTER_H
+#define MARKERS_VISUALIZATION_MARKER_CLUSTER_H
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -13,13 +13,13 @@
 namespace markers
 {
 
-   class MarkerClassDecoded
+   class MarkerClassClusterDecoded
    {
       public:
 
-         MarkerClassDecoded();
+         MarkerClassClusterDecoded();
 
-         void callback(const pb_msgs::ContiRadar & input);
+         void callback(const pb_msgs::ClusterRadar & input);
 
       private:
          
@@ -29,13 +29,13 @@ namespace markers
 
    };//End of class
 
-   class MarkerClassFiltered
+   class MarkerClassClusterFiltered
    {
       public:
 
-         MarkerClassFiltered();
+         MarkerClassClusterFiltered();
 
-         void callback(const pb_msgs::ContiRadar & input);
+         void callback(const pb_msgs::ClusterRadar & input);
 
       private:
          
