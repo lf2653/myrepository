@@ -71,3 +71,6 @@ cansend can0 202#8C0000012C // Maximum distance of objects detected 30 meters
 cansend can0 202#AE06800FFF // Minimum value of object RCS -10 dBm2
 cansend can0 202#C600030007 // Minimum value of objects probability of existence 75%
 ```
+
+Other option to configure the radar is to modify the values of configuration_vars.h inside the header folder of socketcan brige. Please remember that is necessary to build the package again in order to save the values chosen in the configuration header file.
+

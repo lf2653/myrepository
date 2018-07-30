@@ -4,7 +4,7 @@
 #include <ros/ros.h>
 #include "std_msgs/String.h"
 #include <can_msgs/Frame.h>
-#include <geometry_msgs/Point32.h>
+#include <sensor_msgs/Imu.h>
 #include <socketcan_bridge/data.h>
 
 #include <cmath>
@@ -12,13 +12,15 @@
 namespace socketcan_bridge
 {
 
+   float time_prev;
+   
    class SpeedinfoNode
    {
       public:
 
          SpeedinfoNode();
 
-         void callback(const geometry_msgs::Point32 & input);
+         void callback(const sensor_msgs::Imu & input);
 
          bool is_integer(float dec);
 
@@ -30,15 +32,13 @@ namespace socketcan_bridge
 
    };//End of class
 
-   float yaw;
-
-      class YawinfoNode
+   class YawinfoNode
    {
       public:
 
          YawinfoNode();
 
-         void callback(const geometry_msgs::Point32 & input);
+         void callback(const sensor_msgs::Imu & input);
 
          bool is_integer(float dec);
 

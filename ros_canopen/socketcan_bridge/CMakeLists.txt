@@ -10,6 +10,7 @@ find_package(catkin REQUIRED
     socketcan_interface
     pb_msgs
     geometry_msgs
+    sensor_msgs
 )
 
 catkin_package(
@@ -22,12 +23,14 @@ catkin_package(
     decode_cluster
     warning
     speedinfo
+    configuration
   CATKIN_DEPENDS
     can_msgs
     roscpp
     socketcan_interface
     pb_msgs
     geometry_msgs
+    sensor_msgs
 )
 
 include_directories(
@@ -102,6 +105,17 @@ add_dependencies(speedinfo
   ${catkin_EXPORTED_TARGETS}
 )
 
+# configuration
+add_library(configuration
+  src/configuration.cpp
+)
+target_link_libraries(configuration
+  ${catkin_LIBRARIES}
+)
+add_dependencies(configuration
+  ${catkin_EXPORTED_TARGETS}
+)
+
 # socketcan_to_topic_node
 add_executable(socketcan_to_topic_node
   src/socketcan_to_topic_node.cpp
@@ -155,6 +169,17 @@ add_executable(speedinfo_node
 )
 target_link_libraries(speedinfo_node
   speedinfo
+  ${catkin_LIBRARIES}
+)
+
+
+# configuration_node
+add_executable(configuration_node
+  src/configuration_node.cpp
+
+)
+target_link_libraries(configuration_node
+  configuration
   ${catkin_LIBRARIES}
 )
 

@@ -14,6 +14,8 @@
 
     <node name="speedinfo_node" pkg="socketcan_bridge" type="speedinfo_node" />
 
+    <node name="configuration_node" pkg="socketcan_bridge" type="configuration_node" />
+
 <!-- Radar markers visualization -->
 
     <node name="visualization_marker_node" pkg="radar_rviz" type="visualization_marker_node" />

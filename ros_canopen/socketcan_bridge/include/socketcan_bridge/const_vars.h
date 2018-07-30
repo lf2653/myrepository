@@ -78,9 +78,6 @@ const double RADAR_SPEED_MIN = 0;
 const double RADAR_YAW_RATE_RES = 0.01;
 const double RADAR_YAW_RATE_MIN = -327.68;
 
-// Buggy wheel radius
-const double BUGGY_WHEEL_RADIUS = 0.127; // 5 inches
-
 }  // namespace socketcan_bridge
 
 #endif

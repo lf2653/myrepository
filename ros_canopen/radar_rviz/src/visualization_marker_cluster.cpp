@@ -30,7 +30,7 @@ namespace markers
          	sphere.action = visualization_msgs::Marker::ADD;
 
          	sphere.header.stamp = ros::Time();
-         	//sphere.lifetime = ros::Duration(0.5);
+         	sphere.lifetime = ros::Duration(0.5);
 
          	sphere.id = input.target_id;
 

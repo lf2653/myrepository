@@ -16,6 +16,7 @@
   <depend>socketcan_interface</depend>
   <depend>pb_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
 
   <test_depend>roslint</test_depend>
   <test_depend>rostest</test_depend>
